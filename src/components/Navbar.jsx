@@ -1,10 +1,14 @@
-import React from "react";
-import { MdLightMode } from "react-icons/md";
+import React, { useState } from "react";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
+import Toggle from "react-toggle";
+import "react-toggle/style.css";
+import { CiDark } from "react-icons/ci";
 
 const Navbar = () => {
-  const navMenu = ["Home", "Blog", "Single Post", "Pages", "Contact"];
+  const navMenu = ["Home", "Blog", "Pages", "Contact"];
+  const [isDark, setIsDark] = useState(true);
   return (
     <>
       <nav className="mb-2">
@@ -25,20 +29,24 @@ const Navbar = () => {
                 </div>
               ))}
             </div>
-            <div className="flex justify-between gap-4">
+            <div className="flex justify-between gap-4 items-center">
               <div className="flex items-center relative">
                 <input
                   type="search"
                   placeholder="search"
                   className="border rounded-md w-8/12 px-2 py-1 items-end pl-4 bg-slate-100 ml-auto"
                 />
-                <FiSearch className="absolute right-2 z-10" />
+                <FiSearch className="absolute right-2 z-10 hover:cursor-pointer" />
               </div>
-              <div className="switch bg-slate-100 rounded-full w-14 py-1">
-                <button className="switch flex p-1 bg-white rounded-full hover:bg-blue-600 hover:text-white">
-                  <MdLightMode />
-                </button>
-              </div>
+              <Toggle
+                checked={isDark}
+                onChange={({ target }) => setIsDark(target.checked)}
+                icons={{
+                  checked: <MdDarkMode className="text-white -mt-1" />,
+                  unchecked: <MdLightMode className="text-white -mt-1" />,
+                }}
+                aria-label="Dark mode toggle"
+              />
             </div>
           </div>
         </div>

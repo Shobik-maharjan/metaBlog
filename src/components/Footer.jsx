@@ -1,7 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { RxDividerVertical } from "react-icons/rx";
 import { CiMail } from "react-icons/ci";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaInstagramSquare,
+  FaLinkedin,
+  FaRegCopyright,
+  FaTwitter,
+} from "react-icons/fa";
+import logo from "/public/favicon_io/android-chrome-192x192.png";
+import Email from "./contact/Email";
+import Phone from "./contact/Phone";
+import { FaFacebook } from "react-icons/fa6";
 
 const Footer = () => {
   const quickLink = ["Home", "About", "Blog", "Archived", "Author", "Contact"];
@@ -36,18 +47,8 @@ const Footer = () => {
                     enim porro nisi!
                   </p>
                 </div>
-                <div className="contact">
-                  <div className="email">
-                    <p>
-                      <strong>Email : </strong> info@metablog.net
-                    </p>
-                  </div>
-                  <div className="phone">
-                    <p>
-                      <strong>Phone : </strong>9812345678
-                    </p>
-                  </div>
-                </div>
+                <Email />
+                <Phone />
               </div>
 
               <div className="quick-link flex justify-center gap-20">
@@ -108,11 +109,49 @@ const Footer = () => {
 
           <hr className="border-black" />
 
-          <div className="copyright flex justify-between py-4">
-            <div className="copyright-info">copyright-info</div>
+          <div className="copyright flex items-center justify-between py-4">
+            <div className="flex gap-2 items-center">
+              <img src={logo} alt="" className="w-14" />
+              <div>
+                Meta<strong>Blog</strong>
+                <div className="copyright-info flex items-center gap-1">
+                  <FaRegCopyright />
+                  JS Template 2023. All Rights Reservd
+                </div>
+              </div>
+            </div>
+
+            <div className="social-link">
+              <div className="flex gap-4">
+                <Link
+                  to={"/"}
+                  className="hover:scale-150 transition-transform duration-300 hover:text-white hover:bg-blue-600 hover:rounded-full p-1"
+                >
+                  <FaFacebookF />
+                </Link>
+                <Link
+                  to={"/"}
+                  className="hover:scale-150 transition-transform duration-300 hover:text-white hover:bg-blue-400 hover:rounded-full p-1"
+                >
+                  <FaTwitter />
+                </Link>
+                <Link
+                  to=""
+                  className="hover:scale-150 transition-transform duration-300 p-1 hover:bg-gradient-to-tr from-orange-500 via-red-500 via-pink-500  to-blue-600 hover:rounded-md hover:text-white"
+                >
+                  <FaInstagram />
+                </Link>
+                <Link
+                  to={"/"}
+                  className="hover:scale-150 transition-transform duration-300 hover:text-white p-1 hover:bg-blue-400 hover:rounded-md"
+                >
+                  <FaLinkedin />
+                </Link>
+              </div>
+            </div>
             <div className="links flex gap-4">
               {copyrightLinks.map((item, i) => (
-                <div className="flex items-center">
+                <div className="flex items-center" key={i}>
                   <Link
                     to={`/${item.toLowerCase().replace(" ", "-")}`}
                     key={i}

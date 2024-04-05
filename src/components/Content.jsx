@@ -1,34 +1,30 @@
 import React from "react";
-import { FaUserCircle } from "react-icons/fa";
 
-const Content = () => {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.toLocaleString("default", { month: "long" });
-  const day = date.getDate();
+const Content = ({ limitWords }) => {
+  const originalText =
+    "The Impact of Technology on the Workplace: How Technology is Changing";
+
+  const maxWords = 7;
+
+  const turncateText = (text, maxLength) => {
+    const words = text.split(" ").slice(0, maxLength).join(" ");
+    return words;
+  };
+
+  const turncatedText = turncateText(originalText, maxWords);
 
   return (
     <>
       <div className="flex flex-col gap-5">
-        <div className="heading p-2">
+        <div className="heading py-2">
           <div className="badge">
             <p className="text-blue-700 rounded-md text-sm p-2 bg-blue-50 w-fit">
               Technology
             </p>
           </div>
-          <h2 className="text-xl font-semibold">
-            The Impact of Technology on the Workplace: How Technology is
-            Changing
+          <h2 className="text-xl font-semibold hover:text-blue-800">
+            {limitWords ? turncatedText + " ..." : originalText}
           </h2>
-        </div>
-        <div className="short-info flex justify-between">
-          <div className="author flex items-center gap-2">
-            <div className="author-image">
-              <FaUserCircle />
-            </div>
-            <div className="author-name">Author</div>
-          </div>
-          <div className="date px-2">{`${month} ${day}, ${year}`}</div>
         </div>
       </div>
     </>
