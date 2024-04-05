@@ -16,7 +16,7 @@ const Content = () => {
               Technology
             </p>
           </div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-xl font-semibold">
             The Impact of Technology on the Workplace: How Technology is
             Changing
           </h2>

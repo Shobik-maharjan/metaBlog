@@ -7,9 +7,9 @@ const Navbar = () => {
   const navMenu = ["Home", "Blog", "Single Post", "Pages", "Contact"];
   return (
     <>
-      <nav>
-        <div className="flex items-center justify-between py-6 ">
-          <div className="logo">
+      <nav className="mb-2">
+        <div className="flex items-center justify-between py-5">
+          <div className="logo transition duration-300 hover:text-blue-700 hover:scale-150">
             <Link to={"/"}>Logo</Link>
           </div>
           <div className="flex items-center gap-10">
@@ -18,7 +18,7 @@ const Navbar = () => {
                 <div className="gap-4" key={i}>
                   <Link
                     to={`/${item.toLowerCase().replace(" ", "-")}`}
-                    className="hover:underline hover:pb-10 after:absolute after:bottom-0 hover:text-blue-500"
+                    className="hover:text-blue-600 hover:border-b-2 border-blue-500 pb-6"
                   >
                     {item}
                   </Link>
@@ -35,15 +35,15 @@ const Navbar = () => {
                 <FiSearch className="absolute right-2 z-10" />
               </div>
               <div className="switch bg-slate-100 rounded-full w-14 py-1">
-                <button className="switch flex p-1 bg-white rounded-full">
+                <button className="switch flex p-1 bg-white rounded-full hover:bg-blue-600 hover:text-white">
                   <MdLightMode />
                 </button>
               </div>
             </div>
           </div>
         </div>
+        <hr className="border-black" />
       </nav>
-      <hr />
     </>
   );
 };

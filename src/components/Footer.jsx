@@ -44,7 +44,7 @@ const Footer = () => {
                   </div>
                   <div className="phone">
                     <p>
-                      <strong>Phone :</strong>9812345678
+                      <strong>Phone : </strong>9812345678
                     </p>
                   </div>
                 </div>
@@ -113,7 +113,11 @@ const Footer = () => {
             <div className="links flex gap-4">
               {copyrightLinks.map((item, i) => (
                 <div className="flex items-center">
-                  <Link to={`/${item.toLowerCase().replace(" ", "-")}`} key={i}>
+                  <Link
+                    to={`/${item.toLowerCase().replace(" ", "-")}`}
+                    key={i}
+                    className="hover:text-blue-600 hover:underline"
+                  >
                     {item}
                   </Link>
                 </div>
