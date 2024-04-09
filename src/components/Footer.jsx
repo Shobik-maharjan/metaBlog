@@ -9,7 +9,7 @@ import {
   FaRegCopyright,
   FaTwitter,
 } from "react-icons/fa";
-import logo from "/public/favicon_io/android-chrome-192x192.png";
+import logo from "/favicon_io/android-chrome-192x192.png";
 import Email from "./contact/Email";
 import Phone from "./contact/Phone";
 import { FaFacebook } from "react-icons/fa6";
@@ -26,7 +26,7 @@ const Footer = () => {
   ];
 
   const copyrightLinks = [
-    "Terns of Use",
+    "Terms of Use",
     // <RxDividerVertical />,
     "Privacy Policy",
     // <RxDividerVertical />,
